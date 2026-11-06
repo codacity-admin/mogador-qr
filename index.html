@@ -1,131 +1,623 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f6efe4" />
-  <meta name="description" content="Retrouvez la Pâtisserie Mogador à Tanger : itinéraire, Instagram et WhatsApp." />
-  <title>Mogador Tanger — Restons connectés</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-    :root { --espresso:#38271f; --coffee:#654532; --gold:#a97e4a; --cream:#f6efe4; --paper:#fffaf3; --muted:#8d7969; --line:#e9dccc; }
-    *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;min-height:100vh;background:var(--cream);color:var(--espresso);font-family:"DM Sans",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.36;background-image:radial-gradient(#a98b6f 0.55px,transparent 0.65px);background-size:9px 9px;mask-image:linear-gradient(to bottom,black,transparent 75%)}
-    .shell{width:min(100%,480px);min-height:100vh;margin:0 auto;position:relative;background:linear-gradient(180deg,#fffaf3 0%,#f9f2e8 58%,#f5ebdf 100%);box-shadow:0 12px 70px #573e2920;overflow:hidden}
-    .hero{position:relative;min-height:365px;padding:34px 24px 0;text-align:center;overflow:hidden;background:radial-gradient(circle at 50% 11%,#fffaf1 0,#f5e7d5 69%,#e4ceb3 100%)}
-    .hero::before,.hero::after{content:"";position:absolute;width:245px;height:245px;border:1px solid #b893665c;border-radius:50%;top:-138px;pointer-events:none}
-    .hero::before{left:-118px}.hero::after{right:-118px}
-    .topline{display:flex;align-items:center;justify-content:center;gap:9px;text-transform:uppercase;letter-spacing:3.2px;font-weight:700;color:#96734c;font-size:10px}
-    .topline .rule{width:23px;height:1px;background:#b99b76}
-    .monogram{position:relative;width:80px;height:80px;display:grid;place-items:center;margin:21px auto 6px;border:1px solid #b99870;border-radius:50%;font:500 50px/1 "Playfair Display",Georgia,serif;color:var(--coffee)}
-    .monogram svg{position:absolute;top:-15px;width:31px;fill:#9e7645}
-    .brand{margin:0;font:600 clamp(39px,10vw,50px)/1.17 "Playfair Display",Georgia,serif;letter-spacing:3px}
-    .location{font-size:10px;letter-spacing:5px;font-weight:700;color:#946c45;margin-top:8px}
-    .hero-tagline{font:italic 500 17px "Playfair Display",Georgia,serif;margin:24px 0 0;color:#6d4f3b}
-    .hero-art{position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);width:350px;max-width:92%;height:119px;opacity:.9}
-    .content{position:relative;margin-top:-18px;background:var(--paper);border-radius:28px 28px 0 0;min-height:400px;padding:32px 26px 28px;box-shadow:0 -9px 24px #76543d0d}
-    .eyebrow{text-align:center;color:var(--gold);font-size:10px;letter-spacing:2.7px;font-weight:700;text-transform:uppercase}
-    h2{text-align:center;font:600 clamp(27px,7vw,33px)/1.27 "Playfair Display",Georgia,serif;letter-spacing:-.7px;margin:11px 0 9px}
-    .lead{max-width:340px;text-align:center;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.8}
-    .divider{display:flex;justify-content:center;align-items:center;gap:10px;margin:23px auto 21px;color:#c5aa87}
-    .divider::before,.divider::after{content:"";display:block;width:43px;height:1px;background:#dfcdb7}
-    .links{display:grid;gap:12px}
-    .link{position:relative;display:flex;align-items:center;min-height:87px;gap:15px;padding:14px 16px;text-decoration:none;border:1px solid #e8dac6;background:#fffdf9;border-radius:17px;box-shadow:0 5px 17px #6246280b;transition:transform .2s,box-shadow .2s,border-color .2s;outline-offset:3px}
-    .link:hover,.link:focus-visible{transform:translateY(-3px);box-shadow:0 11px 22px #6246281b;border-color:#c7aa87}
-    .icon-wrap{width:51px;height:51px;flex:none;border-radius:14px;display:grid;place-items:center}
-    .maps .icon-wrap{background:#f0f5ec}.instagram .icon-wrap{background:#fcf0f1}.whatsapp .icon-wrap{background:#eaf6ed}
-    .icon-wrap svg{width:26px;height:26px}
-    .link-copy{flex:1;min-width:0}
-    .link-title{display:block;font-weight:700;font-size:16px;color:var(--espresso);letter-spacing:.1px}
-    .link-desc{display:block;color:#937d6a;margin-top:4px;font-size:12px}
-    .arrow{width:28px;height:28px;border:1px solid #eadfce;border-radius:50%;display:grid;place-items:center;color:#ad8a62;flex:none}
-    .arrow svg{width:15px;height:15px}
-    .notice{text-align:center;margin:26px auto 0;font-size:11px;color:#937e6c;line-height:1.7}
-    .notice strong{color:#6a503d;font-weight:700}
-    .bottom{border-top:1px solid #e7daca;margin-top:25px;padding:21px 0 0;display:flex;align-items:center;justify-content:center;gap:9px;color:#8f795f;font-size:11px}
-    .bottom svg{width:14px;height:14px}
-    .inactive{opacity:.62;cursor:not-allowed}
-    @media(max-width:360px){.content{padding-inline:18px}.hero{min-height:350px}.brand{letter-spacing:1.5px}.link{gap:11px;padding:12px}}
-    @media(min-width:700px){body{padding:35px 0}.shell{min-height:0;border:1px solid #e8d6c0;border-radius:30px}.content{border-radius:28px 28px 30px 30px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
-  </style>
-</head>
-<body>
-  <main class="shell">
-    <header class="hero">
-      <div class="topline"><span class="rule"></span> L'art de la gourmandise <span class="rule"></span></div>
-      <div class="monogram" aria-hidden="true">
-        <svg viewBox="0 0 64 32"><path d="M4 26 0 6l14 12L31 1l18 17L63 6l-5 20H4Zm2 3h52v3H6z"/></svg>M
-      </div>
-      <h1 class="brand">Mogador</h1>
-      <div class="location">PÂTISSERIE · TANGER</div>
-      <p class="hero-tagline">Des douceurs à partager</p>
-      <svg class="hero-art" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <ellipse cx="200" cy="129" rx="167" ry="12" fill="#b48b6240"/>
-        <path d="M54 119C80 63 120 41 161 56c24 8 29 28 39 46-41-14-75-8-103 22Z" fill="#b4773e" stroke="#8e5834" stroke-width="3"/>
-        <path d="M64 108c35-52 57-58 91-50m-58 63c27-36 49-42 74-34m-46 36c22-22 43-28 65-23" stroke="#f0c889" stroke-width="10" stroke-linecap="round"/>
-        <path d="M197 108c18-50 45-67 73-63 21 3 40 21 59 67-41-13-90-16-132-4Z" fill="#d59a58" stroke="#8e5834" stroke-width="3"/>
-        <path d="M221 99c10-32 25-43 40-45m-14 49c9-32 24-45 40-44m-13 49c14-22 30-29 45-27" stroke="#fae1ac" stroke-width="11" stroke-linecap="round"/>
-        <path d="M82 126c70 17 167 20 251 0" stroke="#a36f46" stroke-width="4" stroke-linecap="round"/>
-        <path d="M351 74c8-17 16-22 25-16-4 13-10 18-25 16Zm-9-11c-1-18-8-25-17-22 0 13 5 21 17 22Z" fill="#ba8f55"/>
-      </svg>
-    </header>
-    <section class="content" aria-labelledby="connect-title">
-      <div class="eyebrow">Ravie de vous accueillir</div>
-      <h2 id="connect-title">Restons connectés</h2>
-      <p class="lead">Une envie sucrée, une question ou simplement envie de nous retrouver ? Choisissez votre destination.</p>
-      <div class="divider" aria-hidden="true">✦</div>
-      <nav class="links" aria-label="Retrouvez Mogador">
-        <a class="link maps" id="maps" href="https://www.google.com/maps/search/?api=1&query=Patisserie%20Mogador%20Tanger" target="_blank" rel="noopener noreferrer">
-          <span class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#34A853" d="M12 2a8 8 0 0 0-8 8c0 5.2 8 12 8 12s8-6.8 8-12a8 8 0 0 0-8-8Z"/><path fill="#4285F4" d="M12 2a8 8 0 0 0-8 8c0 1.7.9 3.8 2.1 5.7l5.9-7.6V2Z"/><path fill="#FBBC04" d="M20 10a8 8 0 0 0-8-8v7.1l5.7 6.5C19.1 13.7 20 11.6 20 10Z"/><path fill="#EA4335" d="M12 2a8 8 0 0 0-6.3 3.1l6.3 4.2 5.9-4.2A8 8 0 0 0 12 2Z"/><circle cx="12" cy="10" r="3.3" fill="#fff"/></svg></span>
-          <span class="link-copy"><span class="link-title">Google Maps</span><span class="link-desc">Nous trouver & donner votre avis</span></span>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
-        </a>
-        <a class="link instagram" id="instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-          <span class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="ig" x1="0" y1="24" x2="24" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FCAF45"/><stop offset=".5" stop-color="#E1306C"/><stop offset="1" stop-color="#833AB4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" stroke="url(#ig)" stroke-width="2.5"/><circle cx="12" cy="12" r="4.2" stroke="url(#ig)" stroke-width="2.5"/><circle cx="17.7" cy="6.4" r="1.4" fill="#C13584"/></svg></span>
-          <span class="link-copy"><span class="link-title">Instagram</span><span class="link-desc">Nos créations & nouveautés</span></span>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
-        </a>
-        <a class="link whatsapp inactive" id="whatsapp" href="#" aria-disabled="true">
-          <span class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.5.2-.6.7-.7.8-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.3.2-.3.5-1 .1-.2 0-.3 0-.4L9.7 8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4s-.9.9-.9 2.1 1 2.4 1.1 2.6 2 3 4.8 4.2c1.8.8 2.5.7 3.4.6 1-.2 1.3-1 1.5-1.8.2-.7.2-1.3.1-1.4-.2-.1-.4-.2-.5-.2Z"/></svg></span>
-          <span class="link-copy"><span class="link-title">WhatsApp</span><span class="link-desc">Une question ? Écrivez-nous</span></span>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
-        </a>
-      </nav>
-      <p class="notice"><strong>Fait avec amour à Tanger</strong><br>Merci de faire partie de notre histoire ♡</p>
-      <div class="bottom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-8-5.5-8-12a8 8 0 1 1 16 0c0 6.5-8 12-8 12Z"/><circle cx="12" cy="9" r="2.5"/></svg> Pâtisserie Mogador · Tanger, Maroc</div>
-    </section>
-  </main>
-  <script>
-    // EDIT THESE THREE VALUES before publishing your QR code.
-    const CONFIG = {
-      googleMapsUrl: "https://www.google.com/maps/place/MERCADO+MOGADOR/@35.7505063,-5.7781205,13.81z/data=!4m10!1m2!2m1!1sPatisserie+Boulongerie+mogador+tanger!3m6!1s0xd0b81815031ed63:0xf22e23f1ed18e11f!8m2!3d35.7622379!4d-5.7555011!15sCiVQYXRpc3NlcmllIEJvdWxhbmdlcmllIG1vZ2Fkb3IgdGFuZ2VykgELc3VwZXJtYXJrZXTgAQA!16s%2Fg%2F11p_5x77g_?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D",
-      instagramUsername: "mogadorpatisserie_", // Example: "mogador.tanger" (without @)
-      whatsappNumber: "212618196569"      // Example: "212612345678" (no + or spaces)
-    };
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f6efe4" />
+    <meta
+      name="description"
+      content="Retrouvez la Pâtisserie Mogador à Tanger : itinéraire, Instagram et WhatsApp."
+    />
+    <title>Mogador Tanger — Restons connectés</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+      :root {
+        --espresso: #38271f;
+        --coffee: #654532;
+        --gold: #a97e4a;
+        --cream: #f6efe4;
+        --paper: #fffaf3;
+        --muted: #8d7969;
+        --line: #e9dccc;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--cream);
+        color: var(--espresso);
+        font-family:
+          "DM Sans",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.36;
+        background-image: radial-gradient(#a98b6f 0.55px, transparent 0.65px);
+        background-size: 9px 9px;
+        mask-image: linear-gradient(to bottom, black, transparent 75%);
+      }
+      .shell {
+        width: min(100%, 480px);
+        min-height: 100vh;
+        margin: 0 auto;
+        position: relative;
+        background: linear-gradient(
+          180deg,
+          #fffaf3 0%,
+          #f9f2e8 58%,
+          #f5ebdf 100%
+        );
+        box-shadow: 0 12px 70px #573e2920;
+        overflow: hidden;
+      }
+      .hero {
+        position: relative;
+        min-height: 365px;
+        padding: 34px 24px 0;
+        text-align: center;
+        overflow: hidden;
+        background: radial-gradient(
+          circle at 50% 11%,
+          #fffaf1 0,
+          #f5e7d5 69%,
+          #e4ceb3 100%
+        );
+      }
+      .hero::before,
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 245px;
+        height: 245px;
+        border: 1px solid #b893665c;
+        border-radius: 50%;
+        top: -138px;
+        pointer-events: none;
+      }
+      .hero::before {
+        left: -118px;
+      }
+      .hero::after {
+        right: -118px;
+      }
+      .topline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        text-transform: uppercase;
+        letter-spacing: 3.2px;
+        font-weight: 700;
+        color: #96734c;
+        font-size: 10px;
+      }
+      .topline .rule {
+        width: 23px;
+        height: 1px;
+        background: #b99b76;
+      }
+      .monogram {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        display: grid;
+        place-items: center;
+        margin: 21px auto 6px;
+        border: 1px solid #b99870;
+        border-radius: 50%;
+        font:
+          500 50px/1 "Playfair Display",
+          Georgia,
+          serif;
+        color: var(--coffee);
+      }
+      .monogram svg {
+        position: absolute;
+        top: -15px;
+        width: 31px;
+        fill: #9e7645;
+      }
+      .brand {
+        margin: 0;
+        font:
+          600 clamp(39px, 10vw, 50px)/1.17 "Playfair Display",
+          Georgia,
+          serif;
+        letter-spacing: 3px;
+      }
+      .location {
+        font-size: 10px;
+        letter-spacing: 5px;
+        font-weight: 700;
+        color: #946c45;
+        margin-top: 8px;
+      }
+      .hero-tagline {
+        font:
+          italic 500 17px "Playfair Display",
+          Georgia,
+          serif;
+        margin: 24px 0 0;
+        color: #6d4f3b;
+      }
+      .hero-art {
+        position: absolute;
+        bottom: -32px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 350px;
+        max-width: 92%;
+        height: 119px;
+        opacity: 0.9;
+      }
+      .content {
+        position: relative;
+        margin-top: -18px;
+        background: var(--paper);
+        border-radius: 28px 28px 0 0;
+        min-height: 400px;
+        padding: 32px 26px 28px;
+        box-shadow: 0 -9px 24px #76543d0d;
+      }
+      .eyebrow {
+        text-align: center;
+        color: var(--gold);
+        font-size: 10px;
+        letter-spacing: 2.7px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      h2 {
+        text-align: center;
+        font:
+          600 clamp(27px, 7vw, 33px)/1.27 "Playfair Display",
+          Georgia,
+          serif;
+        letter-spacing: -0.7px;
+        margin: 11px 0 9px;
+      }
+      .lead {
+        max-width: 340px;
+        text-align: center;
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.8;
+      }
+      .divider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 23px auto 21px;
+        color: #c5aa87;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        display: block;
+        width: 43px;
+        height: 1px;
+        background: #dfcdb7;
+      }
+      .links {
+        display: grid;
+        gap: 12px;
+      }
+      .link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 87px;
+        gap: 15px;
+        padding: 14px 16px;
+        text-decoration: none;
+        border: 1px solid #e8dac6;
+        background: #fffdf9;
+        border-radius: 17px;
+        box-shadow: 0 5px 17px #6246280b;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          border-color 0.2s;
+        outline-offset: 3px;
+      }
+      .link:hover,
+      .link:focus-visible {
+        transform: translateY(-3px);
+        box-shadow: 0 11px 22px #6246281b;
+        border-color: #c7aa87;
+      }
+      .icon-wrap {
+        width: 51px;
+        height: 51px;
+        flex: none;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+      }
+      .maps .icon-wrap {
+        background: #f0f5ec;
+      }
+      .instagram .icon-wrap {
+        background: #fcf0f1;
+      }
+      .whatsapp .icon-wrap {
+        background: #eaf6ed;
+      }
+      .icon-wrap svg {
+        width: 26px;
+        height: 26px;
+      }
+      .link-copy {
+        flex: 1;
+        min-width: 0;
+      }
+      .link-title {
+        display: block;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--espresso);
+        letter-spacing: 0.1px;
+      }
+      .link-desc {
+        display: block;
+        color: #937d6a;
+        margin-top: 4px;
+        font-size: 12px;
+      }
+      .arrow {
+        width: 28px;
+        height: 28px;
+        border: 1px solid #eadfce;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #ad8a62;
+        flex: none;
+      }
+      .arrow svg {
+        width: 15px;
+        height: 15px;
+      }
+      .notice {
+        text-align: center;
+        margin: 26px auto 0;
+        font-size: 11px;
+        color: #937e6c;
+        line-height: 1.7;
+      }
+      .notice strong {
+        color: #6a503d;
+        font-weight: 700;
+      }
+      .bottom {
+        border-top: 1px solid #e7daca;
+        margin-top: 25px;
+        padding: 21px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        color: #8f795f;
+        font-size: 11px;
+      }
+      .bottom svg {
+        width: 14px;
+        height: 14px;
+      }
+      .inactive {
+        opacity: 0.62;
+        cursor: not-allowed;
+      }
+      @media (max-width: 360px) {
+        .content {
+          padding-inline: 18px;
+        }
+        .hero {
+          min-height: 350px;
+        }
+        .brand {
+          letter-spacing: 1.5px;
+        }
+        .link {
+          gap: 11px;
+          padding: 12px;
+        }
+      }
+      @media (min-width: 700px) {
+        body {
+          padding: 35px 0;
+        }
+        .shell {
+          min-height: 0;
+          border: 1px solid #e8d6c0;
+          border-radius: 30px;
+        }
+        .content {
+          border-radius: 28px 28px 30px 30px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div class="topline">
+          <span class="rule"></span> L'art de la gourmandise
+          <span class="rule"></span>
+        </div>
+        <div class="monogram" aria-hidden="true">
+          <svg viewBox="0 0 64 32">
+            <path
+              d="M4 26 0 6l14 12L31 1l18 17L63 6l-5 20H4Zm2 3h52v3H6z"
+            /></svg
+          >M
+        </div>
+        <h1 class="brand">Mogador</h1>
+        <div class="location">PÂTISSERIE · TANGER</div>
+        <p class="hero-tagline">Des douceurs à partager</p>
+        <svg
+          class="hero-art"
+          viewBox="0 0 400 150"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <ellipse cx="200" cy="129" rx="167" ry="12" fill="#b48b6240" />
+          <path
+            d="M54 119C80 63 120 41 161 56c24 8 29 28 39 46-41-14-75-8-103 22Z"
+            fill="#b4773e"
+            stroke="#8e5834"
+            stroke-width="3"
+          />
+          <path
+            d="M64 108c35-52 57-58 91-50m-58 63c27-36 49-42 74-34m-46 36c22-22 43-28 65-23"
+            stroke="#f0c889"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+          <path
+            d="M197 108c18-50 45-67 73-63 21 3 40 21 59 67-41-13-90-16-132-4Z"
+            fill="#d59a58"
+            stroke="#8e5834"
+            stroke-width="3"
+          />
+          <path
+            d="M221 99c10-32 25-43 40-45m-14 49c9-32 24-45 40-44m-13 49c14-22 30-29 45-27"
+            stroke="#fae1ac"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+          <path
+            d="M82 126c70 17 167 20 251 0"
+            stroke="#a36f46"
+            stroke-width="4"
+            stroke-linecap="round"
+          />
+          <path
+            d="M351 74c8-17 16-22 25-16-4 13-10 18-25 16Zm-9-11c-1-18-8-25-17-22 0 13 5 21 17 22Z"
+            fill="#ba8f55"
+          />
+        </svg>
+      </header>
+      <section class="content" aria-labelledby="connect-title">
+        <div class="eyebrow">Ravie de vous accueillir</div>
+        <h2 id="connect-title">Restons connectés</h2>
+        <p class="lead">
+          Une envie sucrée, une question ou simplement envie de nous retrouver ?
+          Choisissez votre destination.
+        </p>
+        <div class="divider" aria-hidden="true">✦</div>
+        <nav class="links" aria-label="Retrouvez Mogador">
+          <a
+            class="link maps"
+            id="maps"
+            href="https://www.google.com/maps/search/?api=1&query=Patisserie%20Mogador%20Tanger"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="icon-wrap" aria-hidden="true"
+              ><svg viewBox="0 0 24 24">
+                <path
+                  fill="#34A853"
+                  d="M12 2a8 8 0 0 0-8 8c0 5.2 8 12 8 12s8-6.8 8-12a8 8 0 0 0-8-8Z"
+                />
+                <path
+                  fill="#4285F4"
+                  d="M12 2a8 8 0 0 0-8 8c0 1.7.9 3.8 2.1 5.7l5.9-7.6V2Z"
+                />
+                <path
+                  fill="#FBBC04"
+                  d="M20 10a8 8 0 0 0-8-8v7.1l5.7 6.5C19.1 13.7 20 11.6 20 10Z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M12 2a8 8 0 0 0-6.3 3.1l6.3 4.2 5.9-4.2A8 8 0 0 0 12 2Z"
+                />
+                <circle cx="12" cy="10" r="3.3" fill="#fff" /></svg
+            ></span>
+            <span class="link-copy"
+              ><span class="link-title">Google Maps</span
+              ><span class="link-desc"
+                >Nous trouver & donner votre avis</span
+              ></span
+            >
+            <span class="arrow" aria-hidden="true"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m9 5 7 7-7 7" /></svg
+            ></span>
+          </a>
+          <a
+            class="link instagram"
+            id="instagram"
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="icon-wrap" aria-hidden="true"
+              ><svg viewBox="0 0 24 24" fill="none">
+                <defs>
+                  <linearGradient
+                    id="ig"
+                    x1="0"
+                    y1="24"
+                    x2="24"
+                    y2="0"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FCAF45" />
+                    <stop offset=".5" stop-color="#E1306C" />
+                    <stop offset="1" stop-color="#833AB4" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="6"
+                  stroke="url(#ig)"
+                  stroke-width="2.5"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4.2"
+                  stroke="url(#ig)"
+                  stroke-width="2.5"
+                />
+                <circle cx="17.7" cy="6.4" r="1.4" fill="#C13584" /></svg
+            ></span>
+            <span class="link-copy"
+              ><span class="link-title">Instagram</span
+              ><span class="link-desc">Nos créations & nouveautés</span></span
+            >
+            <span class="arrow" aria-hidden="true"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m9 5 7 7-7 7" /></svg
+            ></span>
+          </a>
+          <a
+            class="link whatsapp inactive"
+            id="whatsapp"
+            href="#"
+            aria-disabled="true"
+          >
+            <span class="icon-wrap" aria-hidden="true"
+              ><svg viewBox="0 0 24 24" fill="#25D366">
+                <path
+                  d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.5.2-.6.7-.7.8-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.3.2-.3.5-1 .1-.2 0-.3 0-.4L9.7 8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4s-.9.9-.9 2.1 1 2.4 1.1 2.6 2 3 4.8 4.2c1.8.8 2.5.7 3.4.6 1-.2 1.3-1 1.5-1.8.2-.7.2-1.3.1-1.4-.2-.1-.4-.2-.5-.2Z"
+                /></svg
+            ></span>
+            <span class="link-copy"
+              ><span class="link-title">WhatsApp</span
+              ><span class="link-desc">Une question ? Écrivez-nous</span></span
+            >
+            <span class="arrow" aria-hidden="true"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m9 5 7 7-7 7" /></svg
+            ></span>
+          </a>
+        </nav>
+        <p class="notice">
+          <strong>Fait avec amour à Tanger</strong><br />Merci de faire partie
+          de notre histoire ♡
+        </p>
+        <div class="bottom">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M12 21s-8-5.5-8-12a8 8 0 1 1 16 0c0 6.5-8 12-8 12Z" />
+            <circle cx="12" cy="9" r="2.5" />
+          </svg>
+          Pâtisserie Mogador · Tanger, Maroc
+        </div>
+      </section>
+    </main>
+    <script>
+      // EDIT THESE THREE VALUES before publishing your QR code.
 
-    document.getElementById("maps").href = CONFIG.googleMapsUrl;
-    const ig = document.getElementById("instagram");
-    if (CONFIG.instagramUsername.trim()) {
-      ig.href = `https://www.instagram.com/${encodeURIComponent(CONFIG.instagramUsername.replace(/^@/, "").trim())}/`;
-    } else {
-      ig.href = "https://www.instagram.com/"; // Demo only until configured
-    }
+      const CONFIG = {
+        googleMapsUrl:
+          "https://www.google.com/maps/search/?api=1&query=35.7622379%2C-5.7555011&query_place_id=ChIJMQcI1-eBCw0RIwMlk9nNYzQ",
 
-    const wa = document.getElementById("whatsapp");
-    const number = CONFIG.whatsappNumber.replace(/\D/g, "");
-    if (number) {
-      const message = encodeURIComponent("Bonjour Mogador ! J'aimerais avoir des informations.");
-      wa.href = `https://wa.me/${number}?text=${message}`;
-      wa.classList.remove("inactive");
-      wa.removeAttribute("aria-disabled");
-      wa.target = "_blank";
-      wa.rel = "noopener noreferrer";
-    } else {
-      wa.addEventListener("click", e => e.preventDefault());
-    }
-  </script>
-</body>
+        instagramUsername: "mogadorpatisserie_",
+
+        whatsappNumber: "212618196569",
+      };
+
+      document.getElementById("maps").href = CONFIG.googleMapsUrl;
+      const ig = document.getElementById("instagram");
+      if (CONFIG.instagramUsername.trim()) {
+        ig.href = `https://www.instagram.com/${encodeURIComponent(CONFIG.instagramUsername.replace(/^@/, "").trim())}/`;
+      } else {
+        ig.href = "https://www.instagram.com/"; // Demo only until configured
+      }
+
+      const wa = document.getElementById("whatsapp");
+      const number = CONFIG.whatsappNumber.replace(/\D/g, "");
+      if (number) {
+        const message = encodeURIComponent(
+          "Bonjour Mogador ! J'aimerais avoir des informations.",
+        );
+        wa.href = `https://wa.me/${number}?text=${message}`;
+        wa.classList.remove("inactive");
+        wa.removeAttribute("aria-disabled");
+        wa.target = "_blank";
+        wa.rel = "noopener noreferrer";
+      } else {
+        wa.addEventListener("click", (e) => e.preventDefault());
+      }
+    </script>
+  </body>
 </html>
